@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator BMR & TDEE - Nutrismart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css"> 
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    
+    <main>
+        <section class="page-header container">
+            <h1 class="section-title">Kalkulator BMR & Kebutuhan Kalori</h1>
+            <p>Hitung energi dasar dan total kalori harian yang tubuh Anda butuhkan.</p>
+        </section>
+
+        <section class="container">
+            <div class="calculator-grid">
+                
+                <div class="calculator-form-container fade-in">
+                    <h2>Hitung Kebutuhan Energi</h2>
+                    <p>Lengkapi data di bawah ini untuk mengetahui BMR dan TDEE Anda.</p>
+                    
+                    <div id="bmr-error-message" class="error-box" style="display: none;"></div>
+
+                    <form id="bmr-form">
+                        <div class="form-group">
+                            <label for="gender">Jenis Kelamin:</label>
+                            <select id="gender" required>
+                                <option value="male">Pria</option>
+                                <option value="female">Wanita</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="height">Tinggi Badan (cm)</label>
+                            <input type="number" id="height" placeholder="Contoh: 170" min="1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="weight">Berat Badan (kg)</label>
+                            <input type="number" id="weight" placeholder="Contoh: 65" min="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age">Usia (tahun)</label>
+                            <input type="number" id="age" placeholder="Contoh: 25" min="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="activity">Tingkat Aktivitas:</label>
+                            <select id="activity" required>
+                                <option value="sedentary">Jarang/Tidak Pernah Olahraga</option>
+                                <option value="lightly-active">Ringan (1-3 hari/minggu)</option>
+                                <option value="moderately-active">Sedang (3-5 hari/minggu)</option>
+                                <option value="very-active">Berat (6-7 hari/minggu)</option>
+                                <option value="extra-active">Sangat Berat (Latihan fisik 2x/hari)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="stress">Faktor Kesehatan (Opsional):</label>
+                            <select id="stress" required>
+                                <option value="none">Sehat / Normal</option>
+                                <option value="infection_light">Sedang Sakit Ringan</option>
+                                <option value="surgery_minor">Pasca Operasi Kecil</option>
+                                <option value="surgery_major">Pasca Operasi Besar</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Hitung BMR & TDEE</button>
+                    </form>
+
+                    <div id="hasil-bmr" class="result-display-container" style="display:none;">
+                        
+                        <div class="result-card">
+                            <div class="card-header">
+                                <span class="icon">🔥</span>
+                                <span class="title">BMR (Istirahat)</span>
+                            </div>
+                            <div class="card-value">
+                                <span id="bmr-value">0</span>
+                                <span class="unit">kcal</span>
+                            </div>
+                            <div class="card-subheader">Energi dasar untuk fungsi organ vital.</div>
+                            <div class="bar-chart-placeholder">
+                                 <div class="bar-chart"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="result-card">
+                            <div class="card-header">
+                                <span class="icon">⚡</span>
+                                <span class="title">TDEE (Total)</span>
+                            </div>
+                            <div class="card-value">
+                                <span id="tdee-value">0</span>
+                                <span class="unit">kcal</span>
+                            </div>
+                            <div class="card-subheader">
+                                <span id="activity-label"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calculator-image-container fade-in" data-delay="200">
+                    
+                    <img src="/public/metabolesm.svg" alt="Ilustrasi Metabolisme Tubuh">
+                    <p style="margin-top: 20px;"><strong>Apa itu BMR?</strong><br>Basal Metabolic Rate adalah kalori yang dibakar tubuh Anda hanya untuk bernapas dan menjaga fungsi organ saat tidur.</p>
+                    <p><strong>Apa itu TDEE?</strong><br>Total Daily Energy Expenditure adalah total kalori yang Anda butuhkan dalam sehari berdasarkan aktivitas fisik Anda.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="/js/script.js"></script> 
+</body>
+</html>

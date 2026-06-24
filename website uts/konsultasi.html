@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konsultasi Gizi - NutriSmart</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <main>
+        <div class="consultation-container">
+            <div class="consultation-card">
+                <h2>Hubungi Ahli Gizi Kami</h2>
+                <p>Punya pertanyaan seputar gizi, diet, atau butuh rencana makan? Sampaikan melalui formulir di bawah ini.</p>
+                
+                <form id="consultation-form" action="https://formsubmit.co/abdulmulukadnaa@gmail.com" method="POST">
+                    
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <input type="hidden" name="_subject" value="Pesan Konsultasi Baru dari NutriSmart!">
+
+
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" name="Nama" placeholder="Masukkan nama Anda" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Alamat Email</label>
+                        <input type="email" id="email" name="Email" placeholder="email@anda.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telepon">Nomor Telepon (Opsional)</label>
+                        <input type="tel" id="telepon" name="Telepon" placeholder="08xxxxxxxxxx">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subjek">Subjek Pertanyaan</label>
+                        <select id="subjek" name="Subjek" required>
+                            <option value="" disabled selected>-- Pilih Topik --</option>
+                            <option value="Pertanyaan Umum">Pertanyaan Umum</option>
+                            <option value="Konsultasi Diet">Konsultasi Diet</option>
+                            <option value="Rencana Makanan">Rencana Makanan</option>
+                            <option value="Booking Sesi">Booking Sesi</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pesan">Pesan Anda</label>
+                        <textarea id="pesan" name="Pesan" rows="6" placeholder="Tuliskan pertanyaan Anda secara detail di sini..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-kirim">Kirim Pesan</button>
+                </form>
+
+                <div class="info-tambahan">
+                    <p>Kami akan berusaha membalas pesan Anda dalam 1-2 hari kerja.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/js/script.js"></script>
+</body>
+</html>

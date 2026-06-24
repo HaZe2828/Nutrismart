@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator BMI - Nutrismart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css"> 
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <main>
+        <section class="page-header container">
+            <h1 class="section-title">Kalkulator BMI & Berat Ideal</h1>
+            <p>Ketahui status gizi dan berat badan ideal Anda.</p>
+        </section>
+
+        <section class="container">
+            <div class="calculator-grid">
+                
+                <div class="calculator-form-container fade-in">
+                    <h2>Hitung Sekarang</h2>
+                    <p>Masukkan data Anda di bawah ini untuk hasil yang akurat.</p>
+                    
+                    <div id="error-message" class="error-box" style="display: none;"></div>
+
+                    <form id="bmi-form">
+                        <div class="form-group-gender">
+                            <label>Pilih Jenis Kelamin:</label>
+                            <div class="gender-options">
+                                <input type="radio" id="gender-pria" name="gender" value="pria" required>
+                                <label for="gender-pria">Pria</label>
+                                <input type="radio" id="gender-wanita" name="gender" value="wanita" required>
+                                <label for="gender-wanita">Wanita</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tinggi">Tinggi Badan (cm)</label>
+                            <input type="number" id="tinggi" placeholder="Contoh: 165" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="berat">Berat Badan (kg)</label>
+                            <input type="number" id="berat" placeholder="Contoh: 55" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Hitung</button>
+                    </form>
+
+                    <div id="hasil-bmi" class="hasil-container" style="display: none;">
+                        
+                        <div class="hasil-item">
+                            <h4>Hasil BMI Anda:</h4>
+                            <div id="nilai-bmi" class="hasil-nilai">22.5</div>
+                            <p id="kategori-bmi" class="hasil-kategori">Normal</p>
+                        </div>
+                        
+                        <div class="hasil-item">
+                            <h4>Berat Badan Ideal Anda:</h4>
+                            <div id="nilai-ideal" class="hasil-nilai">53.1 kg</div>
+                            <p class="hasil-kategori">(Berdasarkan Rumus Broca)</p>
+                        </div>
+
+                        <div class="hasil-saran">
+                            <p id="saran-bmi">Saran untuk Anda...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calculator-image-container fade-in" data-delay="200">
+                    <img src="/public/timbangan.svg" alt="Ilustrasi Timbangan Badan">
+                    <p>BMI adalah alat skrining sederhana, sedangkan berat badan ideal (Broca) adalah estimasi klasik.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="/js/script.js"></script> 
+</body>
+</html>

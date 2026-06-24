@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemesanan Program Konsultasi & Meal Plan</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; background-color: #f4f4f4; padding: 20px; }
+        .container { max-width: 600px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin: auto; }
+        h2 { color: #75b5e1; border-bottom: 2px solid #002bb7; padding-bottom: 5px; }
+        .service-item { display: flex; justify-content: space-between; align-items: center; padding: 12px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 10px; cursor: pointer; transition: 0.3s; }
+        .service-item:hover { background-color: #e8f5e9; }
+        .service-item input { transform: scale(1.2); }
+        .total-section { margin-top: 20px; padding: 15px; background: #eee; border-radius: 5px; text-align: right; }
+        .btn-pay { display: block; width: 100%; padding: 15px; background-color: #002bb7; color: white; text-align: center; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px; border: none; cursor: pointer; }
+        .btn-pay:disabled { background-color: #ccc; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <form id="orderForm">
+        <h2>Program Konsultasi Gizi Dewasa</h2>
+        <label class="service-item">
+            <span>Program Diet Turun Berat Badan</span>
+            <span><b>Rp 50.000</b> <input type="radio" name="program" value="50000" data-name="Diet Turun BB"></span>
+        </label>
+        <label class="service-item">
+            <span>Program Diet Naik Berat Badan</span>
+            <span><b>Rp 50.000</b> <input type="radio" name="program" value="50000" data-name="Diet Naik BB"></span>
+        </label>
+        <label class="service-item">
+            <span>Program Diet Hamil</span>
+            <span><b>Rp 75.000</b> <input type="radio" name="program" value="75000" data-name="Diet Hamil"></span>
+        </label>
+        <label class="service-item">
+            <span>Program Diet Menyusui</span>
+            <span><b>Rp 75.000</b> <input type="radio" name="program" value="75000" data-name="Diet Menyusui"></span>
+        </label>
+        <label class="service-item">
+            <span>Program Diet Penyakit Medis</span>
+            <span><b>Rp 120.000</b> <input type="radio" name="program" value="120000" data-name="Diet Penyakit Medis"></span>
+        </label>
+
+        <h2>Program Meal Plan</h2>
+        <label class="service-item">
+            <span>Meal Plan 3 Hari</span>
+            <span><b>Rp 100.000</b> <input type="radio" name="program" value="100000" data-name="Meal Plan 3 Hari"></span>
+        </label>
+        <label class="service-item">
+            <span>Meal Plan 5 Hari</span>
+            <span><b>Rp 150.000</b> <input type="radio" name="program" value="150000" data-name="Meal Plan 5 Hari"></span>
+        </label>
+        <label class="service-item">
+            <span>Meal Plan 10 Hari</span>
+            <span><b>Rp 250.000</b> <input type="radio" name="program" value="250000" data-name="Meal Plan 10 Hari"></span>
+        </label>
+
+        <div class="total-section">
+            <strong>Total Pembayaran: </strong>
+            <span id="displayTotal">Rp 0</span>
+        </div>
+
+        <button type="button" id="payButton" class="btn-pay" disabled onclick="redirectToPayment()">BAYAR SEKARANG</button>
+    </form>
+</div>
+
+<script>
+    const form = document.getElementById('orderForm');
+    const payButton = document.getElementById('payButton');
+    const displayTotal = document.getElementById('displayTotal');
+
+    form.addEventListener('change', () => {
+        const selected = document.querySelector('input[name="program"]:checked');
+        if (selected) {
+            displayTotal.innerText = "Rp " + parseInt(selected.value).toLocaleString('id-ID');
+            payButton.disabled = false;
+        }
+    });
+
+    function redirectToPayment() {
+        const selected = document.querySelector('input[name="program"]:checked');
+        const programName = selected.getAttribute('data-name');
+        const price = selected.value;
+
+        // Contoh: Mengarahkan ke WhatsApp dengan pesan otomatis
+        // Anda bisa mengganti URL ini dengan link Payment Gateway (Midtrans/Xendit)
+        const waNumber = "628123456789"; // Ganti dengan nomor WA admin
+        const message = `Halo Admin, saya ingin memesan:\n\nProgram: ${programName}\nTotal: Rp ${parseInt(price).toLocaleString('id-ID')}\n\nMohon informasi langkah pembayarannya.`;
+        
+        const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+        
+        alert("Anda akan diarahkan ke halaman pembayaran/konfirmasi.");
+        window.location.href = waUrl;
+    }
+</script>
+
+</body>
+</html>

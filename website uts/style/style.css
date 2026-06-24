@@ -1,0 +1,1436 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Variabel Warna dan Pengaturan Dasar */
+:root {
+    --primary-color: #75b5e1; 
+    --secondary-color: #75b5e1; 
+    --dark-color: #002bb7;
+    --light-color: #F9F9F9;
+    --white-color: #ffffff;
+    --grey-color: #777;
+    --medium-grey: #777;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --border-radius: 10px;
+    
+    /* Variabel Khusus Form & Error */
+    --error-color: #e74c3c;
+    --error-bg: #ffebeB;
+    --bmr-button-color: #4CAF50; /* Hijau standar untuk tombol BMR */
+    
+    /* Variabel Toko (Baru) */
+    --shop-accent: #2563eb;
+    --shop-accent-hover: #1d4ed8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* --- UTILITAS TOMBOL (Main) --- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--secondary-color);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+/* --- HEADER DAN NAVIGASI --- */
+#main-header {
+    background-color: var(--white-color);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: box-shadow 0.3s ease;
+}
+
+#main-header.sticky {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#main-header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark-color);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* --- BAGIAN HERO --- */
+.hero {
+    height: 90vh;
+    min-height: 500px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+    
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), 
+                url('nutrismart\ indx.jpeg') no-repeat center center/cover;
+    
+    color: var(--white-color);
+    padding: 0 20px;
+    padding-bottom: 80px;
+    margin-top: 65px;
+    position: relative;
+}
+
+.hero-content {
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+}
+
+/* --- JUDUL SECTION (Umum) --- */
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    padding-top: 60px;
+}
+
+/* --- BAGIAN FITUR --- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.feature-card {
+    background-color: var(--white-color);
+    padding: 30px;
+    text-align: center;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.card-link {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+/* --- BAGIAN ARTIKEL --- */
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.article-card {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+}
+
+.article-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.article-content {
+    padding: 20px;
+}
+
+.article-content .category {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    padding: 3px 8px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.article-content h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+.article-content p {
+    font-size: 14px;
+    color: var(--grey-color);
+    margin-bottom: 15px;
+}
+
+.article-content a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* --- CTA BANNER --- */
+.cta-banner {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 60px 0;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.cta-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* ============================================= */
+/* ==   GAYA HALAMAN KALKULATOR BMI            == */
+/* ============================================= */
+
+.page-header {
+    padding-top: 80px; 
+    text-align: center;
+}
+.page-header p {
+    font-size: 18px;
+    color: var(--grey-color);
+    margin-top: -30px; 
+}
+
+/* Tata Letak Grid (Formulir + Gambar) */
+.calculator-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: flex-start;
+    padding: 30px 0 60px 0;
+}
+
+/* Kolom Kiri: Formulir */
+.calculator-form-container {
+    background: var(--white-color);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+.calculator-form-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+.calculator-form-container p {
+    color: var(--grey-color);
+    margin-bottom: 20px;
+}
+
+/* Kotak Error BMI */
+.error-box {
+    background-color: var(--error-bg);
+    border: 1px solid var(--error-color);
+    color: var(--error-color);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Penataan Radio Button Gender */
+.form-group-gender {
+    margin-bottom: 20px;
+}
+.form-group-gender label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.gender-options {
+    display: flex;
+    gap: 10px;
+}
+.gender-options input[type="radio"] {
+    display: none;
+}
+.gender-options label {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+.gender-options input[type="radio"]:checked + label {
+    border-color: var(--primary-color);
+    background-color: #eaf6f6;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+.gender-options label:hover {
+    border-color: #bbb;
+}
+
+/* Grup Form (Tinggi & Berat) */
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+/* Hilangkan panah input number (Global) */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0; 
+}
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: none;
+}
+
+/* Kolom Kanan: Gambar */
+.calculator-image-container {
+    text-align: center;
+    padding: 20px;
+}
+.calculator-image-container img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+}
+.calculator-image-container p {
+    font-size: 14px;
+    color: var(--grey-color);
+    font-style: italic;
+}
+
+/* Kotak Hasil BMI */
+.hasil-container {
+    background-color: var(--light-color);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    margin-top: 30px;
+    border-left: 5px solid var(--primary-color);
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 20px;
+}
+
+.hasil-item {
+    flex: 1; 
+    min-width: 150px; 
+}
+.hasil-item h4 {
+    font-size: 16px;
+    color: var(--grey-color);
+    margin-bottom: 5px;
+}
+.hasil-nilai {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+.hasil-kategori {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.hasil-saran {
+    flex-basis: 100%;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 10px;
+}
+.hasil-saran p {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--grey-color);
+}
+
+/* Kelas Status (dari JS BMI) */
+.hasil-container.status-kurus { border-left-color: #3498db; }
+.hasil-container.status-normal { border-left-color: #2ecc71; }
+.hasil-container.status-gemuk { border-left-color: #f39c12; }
+.hasil-container.status-obesitas { border-left-color: #e74c3c; }
+
+/* Warna Teks Hasil BMI */
+.status-kurus .hasil-nilai, .status-kurus .hasil-kategori { color: #3498db; }
+.status-normal .hasil-nilai, .status-normal .hasil-kategori { color: #2ecc71; }
+.status-gemuk .hasil-nilai, .status-gemuk .hasil-kategori { color: #f39c12; }
+.status-obesitas .hasil-nilai, .status-obesitas .hasil-kategori { color: #e74c3c; }
+
+/* Warna Hasil Berat Ideal */
+#nilai-ideal {
+    color: var(--primary-color);
+}
+#nilai-ideal + .hasil-kategori { 
+    color: var(--grey-color);
+    font-weight: 400;
+    font-size: 14px;
+}
+
+/* ============================================= */
+/* ==   GAYA HALAMAN KONSULTASI                == */
+/* ============================================= */
+
+.consultation-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 20px;
+}
+
+.consultation-card {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 2.5rem;
+    text-align: center;
+}
+
+.consultation-card h2 {
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.consultation-card p {
+    color: var(--grey-color);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+/* Style untuk <select> & <textarea> */
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--dark-color);
+    background-color: var(--white-color);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Tombol Kirim */
+.btn-kirim {
+    background-color: #2ecc71;
+    color: var(--white-color);
+    border: none;
+    border-radius: 5px;
+    padding: 0.85rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-kirim:hover {
+    background-color: #27ae60;
+}
+
+.info-tambahan {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f0f0f0;
+    font-size: 0.9rem;
+    color: var(--grey-color);
+}
+
+/* ============================================= */
+/* ==   GAYA HALAMAN KALKULATOR BMR (BARU)      == */
+/* ============================================= */
+
+.calculator-container {
+    max-width: 800px; 
+    margin: 40px auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    background-color: var(--white-color);
+    box-shadow: var(--shadow);
+}
+
+.calculator-container h2 { 
+    text-align: center; 
+    color: var(--dark-color);
+    margin-bottom: 25px;
+}
+
+/* Scoping form elements untuk BMR */
+.calculator-container label, 
+.calculator-container input, 
+.calculator-container select {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 16px;
+    border: 1px solid #ddd;
+}
+
+/* Tombol Submit BMR */
+.calculator-container button {
+    display: block;
+    width: 100%;
+    background-color: var(--bmr-button-color);
+    color: var(--white-color);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.calculator-container button:hover { 
+    background-color: #45a049; 
+}
+
+/* Styling Pesan Error BMR */
+#bmr-error-message {
+    border: 1px solid var(--error-color);
+    background-color: var(--error-bg);
+    color: var(--error-color);
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* --- HASIL KARTU BMR & TDEE --- */
+.result-display-container {
+    display: flex; 
+    gap: 20px;
+    margin-top: 30px;
+    justify-content: space-between;
+    padding: 10px 0; 
+}
+
+.result-card {
+    flex: 1; 
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #f7f7f7; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 180px; 
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    font-weight: 600; 
+    color: var(--dark-color);
+    margin-bottom: 5px;
+}
+
+.card-header .icon {
+    font-size: 1.5em;
+    margin-right: 8px;
+}
+
+.card-subheader {
+    font-size: 0.9em;
+    color: var(--medium-grey);
+    margin-bottom: 15px;
+}
+
+.card-value {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1; 
+}
+
+.card-value .unit {
+    font-size: 0.4em;
+    font-weight: 400;
+    color: var(--medium-grey);
+}
+
+/* Styling Bar Chart Placeholder */
+.bar-chart-placeholder {
+    height: 30px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+.bar-chart {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, 
+        #4CAF50 0%, #4CAF50 15%, 
+        #8BC34A 15%, #8BC34A 35%, 
+        #00BCD4 35%, #00BCD4 55%,
+        #03A9F4 55%, #03A9F4 75%,
+        #2196F3 75%, #2196F3 100%);
+    border-radius: 3px;
+    opacity: 0.8;
+}
+
+/* ============================================= */
+/* ==   GAYA HALAMAN TENTANG KAMI              == */
+/* ============================================= */
+
+/* Intro Card */
+.about-intro-card {
+    background-color: var(--white-color);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    border-top: 5px solid var(--primary-color);
+}
+
+/* Grid Tim */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.team-card {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 30px 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+}
+
+.team-image {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary-color);
+}
+
+.team-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-card h3 {
+    color: var(--dark-color);
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.team-card .role {
+    display: block;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.team-card p {
+    font-size: 0.9rem;
+    color: var(--grey-color);
+}
+
+/* Bagian Kontak */
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.contact-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.contact-item .icon {
+    font-size: 24px;
+    margin-right: 15px;
+    background-color: #eaf6f6;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* Tombol Sosial Media Besar */
+.social-links-large {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-btn {
+    display: block;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+    transition: opacity 0.3s;
+}
+
+.social-btn:hover {
+    opacity: 0.9;
+}
+
+.social-btn.instagram { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
+.social-btn.youtube { background-color: #FF0000; }
+.social-btn.twitter { background-color: #1DA1F2; }
+
+/* ============================================= */
+/* ==   GAYA HALAMAN PRODUK (KATALOG)          == */
+/* ============================================= */
+
+/* Wrapper untuk membagi Sidebar dan Konten Utama */
+.catalog-layout {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+/* --- SIDEBAR --- */
+.catalog-sidebar {
+    width: 250px;
+    flex-shrink: 0; 
+}
+
+.sidebar-widget {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+}
+
+.sidebar-widget h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.filter-option input {
+    margin-right: 10px;
+    accent-color: var(--shop-accent);
+}
+
+.sort-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --- GRID PRODUK --- */
+.catalog-content {
+    flex-grow: 1;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+/* --- KARTU PRODUK (Card) --- */
+.product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    cursor: pointer; /* Menandakan bisa diklik */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Badge (Diskon/Baru) */
+.product-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #10b981; 
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+.product-badge.discount {
+    background: #ef4444; 
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #f9fafb;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.product-info h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.product-desc {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    flex-grow: 1; 
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 15px;
+}
+
+.price {
+    font-weight: 700;
+    color: var(--shop-accent);
+    font-size: 1.1rem;
+}
+
+.btn-product {
+    background: var(--shop-accent);
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.btn-product:hover {
+    background: var(--shop-accent-hover);
+}
+
+/* ============================================= */
+/* ==   MODAL PRODUK (POP-UP) - TERBARU        == */
+/* ============================================= */
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000; /* Z-index tinggi agar di atas header sticky */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px); /* Efek blur di background */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #aaa;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    line-height: 1;
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+.close-btn:hover { color: #000; background: #fff; }
+
+/* --- GAYA SLIDER GAMBAR (BARU) --- */
+.modal-img-container {
+    flex: 1 1 45%;
+    position: relative;
+    background: #000; /* Background gelap agar gambar jelas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+}
+
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-img-container img {
+    max-width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 5;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slider-btn.prev { left: 10px; }
+.slider-btn.next { right: 10px; }
+
+.slide-counter {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+/* --- DETAIL PRODUK --- */
+.modal-details {
+    flex: 1 1 55%;
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-category {
+    color: var(--shop-accent);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.modal-title { 
+    margin: 5px 0 15px 0; 
+    font-size: 2rem; 
+    color: #1f2937;
+    line-height: 1.2;
+}
+
+.modal-price { 
+    font-size: 1.8rem; 
+    color: var(--shop-accent); 
+    font-weight: bold; 
+    margin-bottom: 20px; 
+}
+
+.modal-desc { 
+    line-height: 1.7; 
+    color: #4b5563; 
+    margin-bottom: 30px; 
+    font-size: 1rem;
+}
+
+/* --- VARIAN --- */
+#m-variants-container {
+    margin-bottom: 20px;
+    background: #f9fafb;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.variant-group { margin-bottom: 15px; }
+.variant-group:last-child { margin-bottom: 0; }
+
+.variant-label { 
+    display: block; 
+    font-weight: 600; 
+    margin-bottom: 8px; 
+    color: #374151;
+    font-size: 0.9rem;
+}
+
+.variant-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    background-color: white;
+    cursor: pointer;
+}
+.variant-select:focus {
+    border-color: var(--shop-accent);
+    outline: none;
+}
+
+/* --- TOMBOL MARKETPLACE (BARU) --- */
+.modal-buttons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: auto;
+}
+
+.btn-marketplace {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: transform 0.2s, opacity 0.2s;
+    color: white;
+}
+
+.btn-marketplace:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Warna WhatsApp */
+.btn-wa {
+    background-color: #25D366;
+}
+
+/* Warna Shopee */
+.btn-shopee {
+    background-color: #EE4D2D;
+}
+
+
+/* ============================================= */
+/* ==   FOOTER & ANIMASI                       == */
+/* ============================================= */
+
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding-top: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--white-color);
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul a {
+    text-decoration: none;
+    color: var(--light-color);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-col ul a:hover {
+    opacity: 1;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid var(--light-color);
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 5px;
+    color: var(--light-color);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #444;
+}
+
+/* Animasi Fade-in */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================= */
+/* ==   DESAIN RESPONSIF (GABUNGAN)            == */
+/* ============================================= */
+
+@media (max-width: 992px) {
+    .features-grid { grid-template-columns: 1fr 1fr; }
+    .article-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+    /* Navigasi */
+    .nav-links { display: none; }
+    
+    /* Ganti grid jadi 1 kolom */
+    .features-grid { grid-template-columns: 1fr; }
+    .article-grid { grid-template-columns: 1fr; }
+
+    /* Aturan responsif BMI */
+    .calculator-grid { grid-template-columns: 1fr; }
+    .calculator-image-container { grid-row: 1; }
+
+    /* Aturan responsif Konsultasi */
+    .consultation-card { padding: 1.5rem; }
+
+    /* Aturan responsif Tentang Kami */
+    .team-grid { grid-template-columns: 1fr; }
+    
+    .social-links-large {
+        flex-direction: row; 
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .social-btn {
+        flex: 1;
+        min-width: 100px;
+        font-size: 0.9rem;
+    }
+
+    /* Aturan responsif PRODUK (KATALOG) */
+    .catalog-layout { flex-direction: column; }
+    .catalog-sidebar { width: 100%; }
+    .sidebar-widget { margin-bottom: 15px; }
+
+    /* Aturan responsif MODAL */
+    .modal-content { 
+        flex-direction: column; 
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        overflow-y: auto; /* Scroll vertikal jika konten panjang */
+    }
+    .modal-img-container { 
+        flex: 0 0 auto;
+        height: 300px; 
+    }
+    .modal-img-container img {
+        height: 100%;
+        width: auto;
+    }
+    .modal-details {
+        flex: 1 0 auto;
+        padding: 25px;
+    }
+    .close-btn {
+        top: 10px;
+        right: 10px;
+        background: rgba(255,255,255,0.9);
+    }
+}
+
+/* Aturan Responsif BMR */
+@media (max-width: 650px) {
+    .result-display-container {
+        flex-direction: column; 
+        gap: 15px;
+    }
+    .calculator-container {
+        max-width: 90%;
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero-content h1 { font-size: 36px; }
+    .modal-title { font-size: 1.5rem; }
+    .modal-price { font-size: 1.3rem; }
+    
+    /* Tombol Modal di HP jadi atas-bawah */
+    .modal-buttons-grid {
+        grid-template-columns: 1fr;
+    }
+}
